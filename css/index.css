@@ -1,0 +1,10 @@
+.container{
+    padding: 10px;
+    background: aliceblue;
+}
+.example-box{
+    width: 30%;
+    padding: 10px 4px;
+    background: black;
+    color: #d2cece;
+}

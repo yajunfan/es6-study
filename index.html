@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="container">
+        <h2>ES6学习</h2>
+        <ul>
+            <li class="mrb-10 pdt-10">
+                <h4>1.let,var,const</h4>
+                <div  class="example-container flex">
+                    <div class="example-box-1 example-box b-d-c">
+                        Ⅰ<br>
+                        for(var i=0;i&#60;3;i++){console.log("内部i",i);}<br>
+                        console.log("外部i",i); <br>
+                        打印的结果为 <br> 内部i 0，内部i 1，内部i 2， 外部i 3
+                    </div>
+                    ===》
+                    <div class="example-box-1 example-box b-d-c">
+                        Ⅱ<br>
+                        for(let j=0;ji&#60;3;j++){ console.log("内部j",j);}<br>
+                        console.log("外部j",j);<br>
+                        打印的结果为 <br> 内部j 0,内部j 1, 内部j 2 <br>
+                        <span class="color-red">Uncaught ReferenceError: j is not defined</span>
+                    </div>
+                    ===》
+                    <div class="example-result-1 example-box b-d-c">
+                        Ⅲ<br>
+                        得出结果:<br>
+                       1) 在for循环中的变量，通过var定义的是全局变量，通过let定义的为私有变量<br>
+                       2) 在函数内部定义的变量，不管是let还是var，都是私有变量，外部无法获取<br>
+                    </div>
+                    <div class="example-box-2 example-box b-d-c">
+                            Ⅰ<br>
+                           console.log(a)；//undefined<br>
+                           var a = 2;<br>
+                           var a = 3;<br>
+                           console.log(a)   //3<br>
+                    </div>
+                    ===》
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅱ<br>
+                        console.log(b)；<span class="color-red">Uncaught SyntaxError: Identifier 'b' has already been declared</span><br>
+                        let b = 2;<br>
+                        let b = 3;<br>
+                        console.log(b)  <span class="color-red">Uncaught SyntaxError: Identifier 'b' has already been declared</span><br>
+                    </div>
+                    ===》
+                    <div class="example-result-2 example-box b-d-c">
+                        Ⅲ<br>
+                        得出结果:<br>
+                       1) var定义可以多次定义，let定义之后，再次定义会报错<br>
+                       2) 在定义之前打印a变量，为undefined，表示a变量名提升，只是未赋值
+                           而let定义赋值之前打印b，报错，表示let不会变量名提升
+                    </div>
+                </div>
+            </li>
+            <li class="mrb-10 pdt-10">
+                <h4>2.变量的解构赋值</h4>
+                <div  class="example-container flex">
+                    <div class="example-box-2 example-box b-d-c">
+                            Ⅰ<br>
+                           <span class="color-yellow">针对【 数组 】的形式</span><br>
+                            let [a,b,c,d,[e,f]]=[1,2,3,4,[5,6]];<br>
+                            let ary = [a,b,c,d,[e,f]];<br>
+                            ary[1] = 6;<br>
+                            console.log(a,e); //  1,5<br>
+                            console.log(ary) //   [1,2,3,4,[5,6]]<br>
+                    </div>
+                    ===》
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅱ<br>
+                        <span class="color-yellow">针对【 对象 】的形式</span><br>
+                        for(let j=0;ji&#60;3;j++){ console.log("内部j",j);}<br>
+                        console.log("外部j",j);<br>
+                        打印的结果为 <br> 内部j 0,内部j 1, 内部j 2 <br>
+                        <span class="color-red">Uncaught ReferenceError: j is not defined</span>
+                    </div>
+                    ===》
+                    <div class="example-result-2 example-box b-d-c">
+                        Ⅲ<br>
+                        得出结果:<br>
+                        1) 在for循环中的变量，通过var定义的是全局变量，通过let定义的为私有变量<br>
+                        2) 在函数内部定义的变量，不管是let还是var，都是私有变量，外部无法获取<br>
+                    </div>
+                </div>
+            </li>
+            <li class="mrb-10 pdt-10">
+                <h4>3.对象的深克隆和浅克隆</h4>
+                <div  class="example-container flex">
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅰ<br>
+                       <span class="color-yellow">针对【 数组 】的形式</span><br>
+                            1）可以使用Object.assign()<br>
+                            2) 可以使用JSON.parse(JSON.stringify())<br>
+                            3）可以使用concat(),slice()的现有方法<br>
+                            4）可以进行遍历取值
+                    </div>
+                    ===》
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅱ<br>
+                        <span class="color-yellow">针对【 对象 】的形式</span><br>
+                            1）可以使用Object.assign()<br>
+                            2) 可以使用JSON.parse(JSON.stringify())
+                    </div>
+                    ===》
+                    <div class="example-result-2 example-box b-d-c">
+                        Ⅲ<br>
+                        得出结果:<br>
+                        1) 对于对象和数组，使用（2）(4)的方法是深克隆 <br>
+                        2) 其他两种方式，当为数组时，只有数组时纯数组，一维的数组，可以实现深克隆，对于有更深层的数组，不能达到深克隆的效果<br>
+                        3）jquery中的$.extend是深克隆    <br>
+                    </div> 
+                </div>
+            </li>
+            <li class="mrb-10 pdt-10">
+                <h4>4.一些常用的特性</h4>
+                <div  class="example-container flex">
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅰ<br>
+                       <span class="color-yellow">ES8新特性</span><br>
+                            1) Object.values()/Object.key()<br>
+                            2）let object12={a: 1, b: 2, c: 3}<br>
+                            3）console.log(Object.values(object12)) //[1, 2, 3]<br>
+                            4）console.log(Object.keys(object12)) // ["a", "b", "c"]
+                    </div>
+                    ===》
+                    <div class="example-box-2 example-box b-d-c">
+                        Ⅱ<br>
+                        <span class="color-yellow">ES7新特性</span><br>
+                            1）array.includes(value) 返回的是true和false<br>
+                            2) 类似于indexOf的方法 返回的是所在位置，没有查找到是-1<br>
+                            3）let arrrrr = ['123','234','345'];<br>
+                            4）console.log(arrrrr.includes('123')) //true
+                    </div>
+                    ===》
+                    <div class="example-result-2 example-box b-d-c">
+                        Ⅲ<br>
+                        得出结果:<br>
+                       
+                    </div> 
+                </div>
+            </li>
+
+        </ul>
+        <!-- <div class="append-dom"></div> -->
+    </div>
+    
+    <script src="./js/jquery-1.9.1.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+</html>
